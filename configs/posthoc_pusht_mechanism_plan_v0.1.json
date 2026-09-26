@@ -1,0 +1,50 @@
+{
+  "analysis": "posthoc_pusht_mechanism_v0.1",
+  "status": "POSTHOC_PLAN_FROZEN_BEFORE_PER_SAMPLE_MECHANISM_OUTPUTS",
+  "known_before_plan": {
+    "external_aggregate_result_known": true,
+    "factual_ratio": 1.000799995644892,
+    "counterfactual_ratio": 1.3245825989640856,
+    "amplification_ratio": 1.323523785699615,
+    "primary_external_threshold_passed": false,
+    "secondary_external_threshold_passed": false
+  },
+  "purpose": "Explain attenuation of the PushT effect without changing or rescuing the failed preregistered external thresholds.",
+  "mechanistic_hypothesis": "The external effect may be diluted because many one-step PushT interventions weakly couple the agent action to T-block motion; if so, low/high model error separation should be larger on contact-coupled transitions than on non-contact transitions.",
+  "data_policy": "Reuse the exact frozen anchor seeds, local offsets, model architecture, optimizer settings, training seeds, and counterfactual actions. Re-execute deterministic PushT transitions only to recover per-sample physics diagnostics and predictions that were not stored in the original aggregate artifact.",
+  "required_reproduction_check": "Before mechanism summaries are accepted, each replicate must reproduce all four original aggregate MSE values (factual low/high and counterfactual low/high) within relative tolerance 1e-5 and absolute tolerance 1e-12.",
+  "primary_descriptive_split": {
+    "name": "contact",
+    "definition": "counterfactual transition info['n_contacts'] > 0 versus == 0",
+    "report": [
+      "sample fraction",
+      "low-model MSE",
+      "high-model MSE",
+      "low/high MSE ratio",
+      "paired-bootstrap 95% CI for geometric-mean replicate ratio",
+      "absolute low-minus-high MSE difference"
+    ]
+  },
+  "secondary_descriptive_splits": {
+    "block_motion": {
+      "definition": "one-step T-block translation magnitude > 1e-4 pixels versus <= 1e-4 pixels"
+    },
+    "initial_center_distance_pixels": {
+      "bins": [[45, 75], [75, 105], [105, 135], [135, 160.000001]]
+    },
+    "action_alignment": {
+      "definition": "cosine between local target offset and initial agent-to-block center vector",
+      "bins": [[-1.000001, -0.5], [-0.5, 0.5], [0.5, 1.000001]],
+      "labels": ["away", "sideways", "toward"]
+    }
+  },
+  "statistics": {
+    "replicate_level": true,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 271828,
+    "no_new_success_threshold": true,
+    "no_multiple_testing_claims": true,
+    "interpretation": "descriptive/explanatory only; cannot convert the failed external test into confirmation"
+  },
+  "stop_rule": "Report all predefined splits regardless of whether they support the mechanistic hypothesis. Do not tune action scale, anchor filter, model, bins, or thresholds after seeing mechanism outputs."
+}

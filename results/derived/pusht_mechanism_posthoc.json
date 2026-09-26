@@ -1,0 +1,132 @@
+{
+  "analysis": "posthoc_pusht_mechanism_v0.1",
+  "aggregate_reproduction_max_relative_error": 0.0,
+  "mean_contact_fraction": 0.22220865885416666,
+  "mean_block_motion_fraction": 0.21836344401041666,
+  "summaries": {
+    "overall_cf": {
+      "n_replicates": 12,
+      "mean_samples_per_replicate": 4096.0,
+      "geometric_mean_ratio": 1.3245825989640858,
+      "ci95_ratio": [
+        1.2990247686462062,
+        1.3493843590253267
+      ],
+      "mean_absolute_mse_difference": 1.1629548215733367e-05
+    },
+    "contact_yes": {
+      "n_replicates": 12,
+      "mean_samples_per_replicate": 910.1666666666666,
+      "geometric_mean_ratio": 1.0899176846365368,
+      "ci95_ratio": [
+        1.0770356986567118,
+        1.1015792851689357
+      ],
+      "mean_absolute_mse_difference": 1.2491507956107548e-05
+    },
+    "contact_no": {
+      "n_replicates": 12,
+      "mean_samples_per_replicate": 3185.8333333333335,
+      "geometric_mean_ratio": 2.8089296295269763,
+      "ci95_ratio": [
+        2.5873419198258873,
+        3.040000905258235
+      ],
+      "mean_absolute_mse_difference": 1.137492932613127e-05
+    },
+    "block_motion_yes": {
+      "n_replicates": 12,
+      "mean_samples_per_replicate": 894.4166666666666,
+      "geometric_mean_ratio": 1.0888040795471579,
+      "ci95_ratio": [
+        1.0764736446074625,
+        1.0999353688166469
+      ],
+      "mean_absolute_mse_difference": 1.2545972405178881e-05
+    },
+    "block_motion_no": {
+      "n_replicates": 12,
+      "mean_samples_per_replicate": 3201.5833333333335,
+      "geometric_mean_ratio": 2.8055605941072645,
+      "ci95_ratio": [
+        2.583354038206633,
+        3.031563484980115
+      ],
+      "mean_absolute_mse_difference": 1.1367747702119391e-05
+    },
+    "distance_bins": {
+      "45_75": {
+        "n_replicates": 12,
+        "mean_samples_per_replicate": 768.3333333333334,
+        "geometric_mean_ratio": 1.107809538483251,
+        "ci95_ratio": [
+          1.0926139959468486,
+          1.1211507344709901
+        ],
+        "mean_absolute_mse_difference": 1.2172204087286048e-05
+      },
+      "75_105": {
+        "n_replicates": 12,
+        "mean_samples_per_replicate": 1020.6666666666666,
+        "geometric_mean_ratio": 1.4042635483076267,
+        "ci95_ratio": [
+          1.3729803559319111,
+          1.4396682161561576
+        ],
+        "mean_absolute_mse_difference": 1.1409392469515041e-05
+      },
+      "105_135": {
+        "n_replicates": 12,
+        "mean_samples_per_replicate": 1208.3333333333333,
+        "geometric_mean_ratio": 1.635678398866318,
+        "ci95_ratio": [
+          1.5751250389707643,
+          1.6955508819469767
+        ],
+        "mean_absolute_mse_difference": 1.1426116781473574e-05
+      },
+      "135_160": {
+        "n_replicates": 12,
+        "mean_samples_per_replicate": 1098.6666666666667,
+        "geometric_mean_ratio": 2.4395473614054217,
+        "ci95_ratio": [
+          2.263363131288133,
+          2.638839013462512
+        ],
+        "mean_absolute_mse_difference": 1.1632505583037761e-05
+      }
+    },
+    "alignment_bins": {
+      "away": {
+        "n_replicates": 12,
+        "mean_samples_per_replicate": 1367.0,
+        "geometric_mean_ratio": 1.754764093113918,
+        "ci95_ratio": [
+          1.6740030744014596,
+          1.8463519764782308
+        ],
+        "mean_absolute_mse_difference": 1.134924940216595e-05
+      },
+      "sideways": {
+        "n_replicates": 12,
+        "mean_samples_per_replicate": 1362.0,
+        "geometric_mean_ratio": 1.3171824442976965,
+        "ci95_ratio": [
+          1.2924244362161876,
+          1.3409859814273322
+        ],
+        "mean_absolute_mse_difference": 1.1658471141267676e-05
+      },
+      "toward": {
+        "n_replicates": 12,
+        "mean_samples_per_replicate": 1367.0,
+        "geometric_mean_ratio": 1.2133737431098155,
+        "ci95_ratio": [
+          1.1923002160233604,
+          1.2324214298051581
+        ],
+        "mean_absolute_mse_difference": 1.1885431694750077e-05
+      }
+    }
+  }
+}

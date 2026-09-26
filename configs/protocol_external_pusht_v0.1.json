@@ -1,0 +1,97 @@
+{
+  "protocol": "external_pusht_v0.1",
+  "status": "PRE_EXECUTION_FROZEN_DESIGN",
+  "relationship_to_v0.3": "Independent external validation. No PushT transition outcomes were inspected when choosing this design.",
+  "environment": {
+    "package": "gym-pusht",
+    "version": "0.1.6",
+    "env_id": "gym_pusht/PushT-v0",
+    "obs_type": "state",
+    "render_mode": "rgb_array",
+    "source_status": "Official Hugging Face Gymnasium PushT package adapted from Diffusion Policy."
+  },
+  "primary_question": "On an externally defined contact-dynamics environment, does weak nonlinear local-action excitation degrade prediction on common intervention actions disproportionately more than it degrades behavior-weighted on-policy prediction when state distributions and raw local-action covariance are matched?",
+  "primary_endpoint": "mean paired log[(CF_MSE_low/CF_MSE_high)/(factual_MSE_low/factual_MSE_high)] across independent anchor-state replicates",
+  "primary_success_threshold_ratio": 2.0,
+  "primary_success_rule": "Lower bound of the paired-bootstrap 95% CI for mean log amplification must exceed log(2).",
+  "secondary_counterfactual_threshold_ratio": 1.5,
+  "secondary_rule": "Lower bound of the paired-bootstrap 95% CI for mean log(CF_MSE_low/CF_MSE_high) must exceed log(1.5).",
+  "factual_equivalence_required": false,
+  "action_parameterization": {
+    "meaning": "local offset from the reset state's agent position to the PushT absolute target-position action",
+    "offset_scale_pixels": 40.0,
+    "epsilon_low": "1/16",
+    "epsilon_high": "1",
+    "block_size": 64,
+    "low_block_counts": "1 copy of each of four diagonal corners and 15 copies of each of four sqrt(2)-scaled axis offsets",
+    "high_block_counts": "16 copies of each of four diagonal corners",
+    "moment_property": "Within every 64-state assignment block: E[offset]=0 and Cov(offset)=40^2 I exactly; Var(dx*dy) differs by 16x."
+  },
+  "state_control": {
+    "method": "Both conditions use the exact same ordered anchor seeds. Each transition starts from env.reset(seed=anchor_seed); no policy rollout generates anchor states.",
+    "action_assignment": "Offsets are randomized within consecutive 64-anchor blocks, whose state sets are identical across low/high conditions and whose offset mean/covariance are exactly matched within each block.",
+    "anchor_filter": {
+      "agent_margin_pixels": 80.0,
+      "min_agent_block_distance_pixels": 45.0,
+      "max_agent_block_distance_pixels": 160.0,
+      "outcome_independent": true,
+      "note": "Filter uses reset geometry only; it does not inspect contact counts, rewards, next states, or model errors."
+    }
+  },
+  "replicates": 12,
+  "replicate_seed_rule": "Replicate r in [0,11] scans candidate anchor seeds starting at 1000000 + 100000*r and uses the first eligible anchors in ascending seed order.",
+  "n_train_anchors": 4096,
+  "n_factual_anchors": 4096,
+  "n_counterfactual_anchors": 1024,
+  "counterfactual_actions": "All four diagonal local offsets (+/-40,+/-40), one transition per action per held-out counterfactual anchor.",
+  "representation": {
+    "input": "[agent_x/512, agent_y/512, block_x/512, block_y/512, sin(theta), cos(theta), dx/(sqrt(2)*40), dy/(sqrt(2)*40)]",
+    "target": "one-step block transition [(block_x'-block_x)/512, (block_y'-block_y)/512, wrap(theta'-theta)/(2*pi)]",
+    "reason": "Targets the externally evolving object rather than trivially predictable controlled-agent kinematics; all normalizations use fixed environment ranges."
+  },
+  "model": {
+    "type": "VectorTransitionMLP",
+    "hidden_width": 128,
+    "hidden_layers": 2,
+    "activation": "ReLU",
+    "optimizer": "Adam",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0,
+    "batch_size": 256,
+    "steps": 1000,
+    "checkpoint_rule": "final step",
+    "selection": "No PushT hyperparameter tuning. Capacity and optimizer settings inherited from the v0.3 factual-only DEV winner."
+  },
+  "model_seed_rule": "low/high models in replicate r use the same initialization/minibatch seed 60001+r",
+  "dataset_seed_rule": {
+    "train_low": "50001+r",
+    "train_high": "70001+r",
+    "factual_low": "80001+r",
+    "factual_high": "90001+r",
+    "anchor_states": "common deterministic seed scan per replicate before action assignment"
+  },
+  "evaluation": {
+    "factual": "MSE of normalized one-step block transition on common held-out anchor states paired with each condition's own matched-moment behavior offsets",
+    "counterfactual": "MSE on the identical held-out anchor/action transitions for both models: all four diagonal corner offsets",
+    "ratio_floor": 1e-15
+  },
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 314159,
+    "method": "paired percentile bootstrap across the 12 complete external replicates"
+  },
+  "integrity_checks": [
+    "Repeated reset with the same anchor seed reproduces the identical initial observation before data collection.",
+    "All absolute target-position actions remain inside [0,512]^2; clipping is forbidden.",
+    "Low/high anchor-seed arrays are identical within training and factual evaluation splits.",
+    "Every 64-anchor action-assignment block has exactly matched low/high raw offset mean and covariance.",
+    "No anchor is selected using post-action outcomes."
+  ],
+  "nonclaims": [
+    "No claim that PushT dynamics literally depend on the scalar feature dx*dy.",
+    "No claim of universal external validity from one benchmark.",
+    "No factual-equivalence claim.",
+    "No tuning of offset scale, geometry filter, architecture, or thresholds after PushT outcomes are observed.",
+    "A failed external result will be reported as a boundary on the controlled finding."
+  ]
+}

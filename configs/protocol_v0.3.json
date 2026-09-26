@@ -1,0 +1,64 @@
+{
+  "protocol": "v0.3",
+  "status": "PRE_CONFIRMATORY_FROZEN_DESIGN",
+  "relationship_to_v0.2.1": "New prospective study motivated by the failed v0.2.1 strict factual-equivalence test. v0.2.1 remains unchanged and is not reclassified.",
+  "primary_question": "Does weak nonlinear action-feature excitation amplify intervention/counterfactual error substantially more than it amplifies on-policy factual error, despite exactly matched raw action mean and covariance?",
+  "primary_endpoint": "mean across paired runs of log(CF_MSE_low/CF_MSE_high) - log(factual_MSE_low/factual_MSE_high)",
+  "primary_interpretation": "log ratio of intervention-generalization gaps: log[(CF_low/factual_low)/(CF_high/factual_high)]",
+  "primary_success_threshold_ratio": 2.0,
+  "primary_success_rule": "Lower bound of the stratified paired-bootstrap 95% CI for the mean log amplification must exceed log(2).",
+  "secondary_counterfactual_threshold_ratio": 1.5,
+  "secondary_rule": "Lower bound of the stratified paired-bootstrap 95% CI for mean log(CF_low/CF_high) must exceed log(1.5).",
+  "factual_equivalence_required": false,
+  "factual_result_policy": "Report factual low/high ratio and CI without a pass/fail equivalence claim.",
+  "epsilon_low": "1/64",
+  "epsilon_high": "1",
+  "n_train": 4096,
+  "n_factual_test": 16384,
+  "n_counterfactual_test": 16384,
+  "primary_model": {
+    "type": "TransitionMLP",
+    "hidden_width": 128,
+    "hidden_layers": 2,
+    "activation": "ReLU",
+    "optimizer": "Adam",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0,
+    "batch_size": 256,
+    "steps": 1000,
+    "checkpoint_rule": "final step",
+    "selection_history": "Frozen from v0.2.1 DEV using factual validation only; no v0.3 tuning."
+  },
+  "dynamics": {
+    "alpha": 0.8,
+    "beta_schedule": [0.75, 0.9, 1.1, 1.25, 0.75, 0.9, 1.1, 1.25, 0.75, 0.9, 1.1, 1.25, 0.75, 0.9, 1.1, 1.25, 0.75, 0.9, 1.1, 1.25],
+    "beta_values_status": "Held out from the v0.2.1 primary beta=1.0 confirmation.",
+    "noise_std_train": 0.1
+  },
+  "confirmatory_runs": 20,
+  "data_seeds": [30001,30002,30003,30004,30005,30006,30007,30008,30009,30010,30011,30012,30013,30014,30015,30016,30017,30018,30019,30020],
+  "model_seeds": [40001,40002,40003,40004,40005,40006,40007,40008,40009,40010,40011,40012,40013,40014,40015,40016,40017,40018,40019,40020],
+  "evaluation": {
+    "factual": "MSE to noiseless conditional mean on each corresponding behavior distribution",
+    "counterfactual": "MSE to noiseless conditional mean on a common balanced four-corner action distribution",
+    "paired_state_noise_model_seeds": true
+  },
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 271828,
+    "method": "stratified paired percentile bootstrap; resample paired runs within each beta stratum so each beta remains equally weighted"
+  },
+  "mechanistic_calibration": {
+    "model": "OLS on [1, s, a1*a2]",
+    "status": "registered calibration, not the primary neural endpoint",
+    "purpose": "Verify the finite-sample feature-conditioning mechanism when the correct nonlinear feature is supplied explicitly.",
+    "selection": "none"
+  },
+  "nonclaims": [
+    "No factual-equivalence claim for the neural model.",
+    "No universal 1/epsilon neural scaling claim.",
+    "No claim that raw action covariance is generally sufficient or useless.",
+    "No claim that counterfactual MSE maps proportionally to planning regret.",
+    "No reclassification of v0.2.1 as successful confirmation."
+  ]
+}

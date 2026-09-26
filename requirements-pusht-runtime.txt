@@ -1,0 +1,2 @@
+gym-pusht==0.1.6
+pymunk==6.10.0

@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code or research artifact, please cite the repository."
+title: "Matched Action Covariance Can Hide Counterfactual Weakness"
+type: software
+authors:
+  - family-names: Sharma
+    given-names: Saurav
+year: 2026
+license: MIT
+repository-code: "https://github.com/saurav0369/counterfactual-action-excitation"

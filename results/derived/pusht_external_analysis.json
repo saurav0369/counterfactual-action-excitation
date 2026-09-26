@@ -1,0 +1,59 @@
+{
+  "protocol": "external_pusht_v0.1",
+  "n_replicates": 12,
+  "factual_low_high_ratio": {
+    "geometric_mean_ratio": 1.000799995644892,
+    "ci95_ratio": [
+      0.9752993523664921,
+      1.0290122856492505
+    ],
+    "mean_log_ratio": 0.0007996758189376604,
+    "ci95_log": [
+      -0.02501082703956487,
+      0.028599396187101566
+    ]
+  },
+  "counterfactual_low_high_ratio": {
+    "geometric_mean_ratio": 1.3245825989640856,
+    "ci95_ratio": [
+      1.298468169747045,
+      1.3501464460006614
+    ],
+    "mean_log_ratio": 0.2810973901593259,
+    "ci95_log": [
+      0.2611852387259103,
+      0.30021306508597745
+    ]
+  },
+  "amplification_ratio": {
+    "geometric_mean_ratio": 1.323523785699615,
+    "ci95_ratio": [
+      1.2806226883500222,
+      1.3625861150551148
+    ],
+    "mean_log_ratio": 0.28029771434038825,
+    "ci95_log": [
+      0.24734643491424702,
+      0.3093844492681678
+    ]
+  },
+  "primary_threshold": 2.0,
+  "primary_pass": false,
+  "secondary_threshold": 1.5,
+  "secondary_pass": false,
+  "individual_amplification_ratios": [
+    1.2803564809825767,
+    1.3858195529684034,
+    1.3078927373765374,
+    1.3675617479667064,
+    1.1586322720641582,
+    1.267491632246293,
+    1.3409399858534905,
+    1.287807840413029,
+    1.4130784502666414,
+    1.403896369522814,
+    1.2966512401504826,
+    1.3955606451295086
+  ],
+  "result_policy": "External support only if the frozen primary rule passes. A failure remains a reported boundary on the controlled v0.3 finding."
+}

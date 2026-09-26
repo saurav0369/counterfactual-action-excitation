@@ -1,0 +1,20 @@
+{
+  "status": "pre-confirmatory",
+  "primary_dynamics": {"alpha": 0.8, "beta": 1.0, "noise_std_train": 0.1},
+  "primary_epsilon_low": "1/64",
+  "primary_epsilon_high": "1",
+  "n_train": 4096,
+  "n_validation": 4096,
+  "n_factual_test": 16384,
+  "n_counterfactual_test": 16384,
+  "confirmatory_runs": 20,
+  "data_seeds": [10001,10002,10003,10004,10005,10006,10007,10008,10009,10010,10011,10012,10013,10014,10015,10016,10017,10018,10019,10020],
+  "model_seeds": [20001,20002,20003,20004,20005,20006,20007,20008,20009,20010,20011,20012,20013,20014,20015,20016,20017,20018,20019,20020],
+  "primary_factual_metric": "MSE to noiseless conditional mean under each behavior policy",
+  "primary_counterfactual_metric": "MSE to noiseless conditional mean on common corner-action test distribution",
+  "factual_equivalence_ratio": [0.8333333333333334, 1.2],
+  "counterfactual_min_ratio": 1.5,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 314159,
+  "notes": "Historical runs are exploratory only. DEV may select architecture using factual validation only. No confirmatory output may be inspected before protocol/config/analysis hashes are recorded."
+}

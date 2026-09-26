@@ -1,0 +1,217 @@
+{
+  "n_pairs": 20,
+  "factual_log_ratio": {
+    "mean": 0.66093152676995,
+    "ci95": [
+      0.4179499886978186,
+      0.9236811590289962
+    ],
+    "geometric_mean_ratio_low_over_high": 1.9365954849669427,
+    "ci95_ratio": [
+      1.5188447131008804,
+      2.5185445094041428
+    ],
+    "equivalence_margin_ratio": [
+      0.8333333333333334,
+      1.2
+    ],
+    "pass": false
+  },
+  "counterfactual_log_ratio": {
+    "mean": 3.8703862708932584,
+    "ci95": [
+      3.6096293562001804,
+      4.151437472814455
+    ],
+    "geometric_mean_ratio_low_over_high": 47.96090840620291,
+    "ci95_ratio": [
+      36.95235411536872,
+      63.52525051820659
+    ],
+    "minimum_required_ratio": 1.5,
+    "pass": true
+  },
+  "primary_hypothesis_supported": false,
+  "run_level": [
+    {
+      "pair_index": 1,
+      "factual_ratio_low_over_high": 3.3494779592430217,
+      "counterfactual_ratio_low_over_high": 100.17558680330588,
+      "low_factual_mse": 0.0006596849569200366,
+      "high_factual_mse": 0.00019695157422953293,
+      "low_counterfactual_mse": 0.020220172540748406,
+      "high_counterfactual_mse": 0.00020184730817150677
+    },
+    {
+      "pair_index": 2,
+      "factual_ratio_low_over_high": 2.675484014659161,
+      "counterfactual_ratio_low_over_high": 70.01746952180214,
+      "low_factual_mse": 0.0008141559831312909,
+      "high_factual_mse": 0.0003043023163922768,
+      "low_counterfactual_mse": 0.020680396961700445,
+      "high_counterfactual_mse": 0.0002953605307781218
+    },
+    {
+      "pair_index": 3,
+      "factual_ratio_low_over_high": 1.6655074498227487,
+      "counterfactual_ratio_low_over_high": 45.26788123980163,
+      "low_factual_mse": 0.0005623058335274701,
+      "high_factual_mse": 0.00033761832382515813,
+      "low_counterfactual_mse": 0.01504860168427315,
+      "high_counterfactual_mse": 0.00033243441645865505
+    },
+    {
+      "pair_index": 4,
+      "factual_ratio_low_over_high": 1.5527607992291221,
+      "counterfactual_ratio_low_over_high": 57.14222295318037,
+      "low_factual_mse": 0.00034376841836179404,
+      "high_factual_mse": 0.0002213917420715799,
+      "low_counterfactual_mse": 0.012378571612799446,
+      "high_counterfactual_mse": 0.00021662740742413653
+    },
+    {
+      "pair_index": 5,
+      "factual_ratio_low_over_high": 1.4670494640149156,
+      "counterfactual_ratio_low_over_high": 20.449216987964245,
+      "low_factual_mse": 0.0004080545604607445,
+      "high_factual_mse": 0.000278146422782508,
+      "low_counterfactual_mse": 0.005771999897896953,
+      "high_counterfactual_mse": 0.00028226019124811316
+    },
+    {
+      "pair_index": 6,
+      "factual_ratio_low_over_high": 1.4066900613788764,
+      "counterfactual_ratio_low_over_high": 37.74895511263355,
+      "low_factual_mse": 0.0004112871323393506,
+      "high_factual_mse": 0.00029237935465058706,
+      "low_counterfactual_mse": 0.010696190957091723,
+      "high_counterfactual_mse": 0.00028335064971141404
+    },
+    {
+      "pair_index": 7,
+      "factual_ratio_low_over_high": 2.239596185005386,
+      "counterfactual_ratio_low_over_high": 73.98155963584033,
+      "low_factual_mse": 0.00044546938949791167,
+      "high_factual_mse": 0.00019890612088037664,
+      "low_counterfactual_mse": 0.014331784061869135,
+      "high_counterfactual_mse": 0.00019372103173296863
+    },
+    {
+      "pair_index": 8,
+      "factual_ratio_low_over_high": 0.9633490835572401,
+      "counterfactual_ratio_low_over_high": 25.175307314122154,
+      "low_factual_mse": 0.0005015044986547141,
+      "high_factual_mse": 0.0005205843937722662,
+      "low_counterfactual_mse": 0.012522114410214714,
+      "high_counterfactual_mse": 0.0004973966853302482
+    },
+    {
+      "pair_index": 9,
+      "factual_ratio_low_over_high": 2.7562381750238267,
+      "counterfactual_ratio_low_over_high": 67.94329098075468,
+      "low_factual_mse": 0.00046101977419612535,
+      "high_factual_mse": 0.0001672641277425671,
+      "low_counterfactual_mse": 0.011950230109930512,
+      "high_counterfactual_mse": 0.00017588535876655553
+    },
+    {
+      "pair_index": 10,
+      "factual_ratio_low_over_high": 1.230493257544257,
+      "counterfactual_ratio_low_over_high": 35.80478438792035,
+      "low_factual_mse": 0.00031786395978090725,
+      "high_factual_mse": 0.00025832239049832797,
+      "low_counterfactual_mse": 0.009163744943070658,
+      "high_counterfactual_mse": 0.0002559363252627847
+    },
+    {
+      "pair_index": 11,
+      "factual_ratio_low_over_high": 1.4842192740729823,
+      "counterfactual_ratio_low_over_high": 30.04473126837361,
+      "low_factual_mse": 0.0005458856675709376,
+      "high_factual_mse": 0.0003677931402096152,
+      "low_counterfactual_mse": 0.01153100531741131,
+      "high_counterfactual_mse": 0.00038379458995359186
+    },
+    {
+      "pair_index": 12,
+      "factual_ratio_low_over_high": 2.208537170662473,
+      "counterfactual_ratio_low_over_high": 74.8291081064267,
+      "low_factual_mse": 0.00039972179105647924,
+      "high_factual_mse": 0.00018098938807381662,
+      "low_counterfactual_mse": 0.012893745623276488,
+      "high_counterfactual_mse": 0.00017230922497349816
+    },
+    {
+      "pair_index": 13,
+      "factual_ratio_low_over_high": 0.708354431979283,
+      "counterfactual_ratio_low_over_high": 20.79598506364136,
+      "low_factual_mse": 0.00027162448867509154,
+      "high_factual_mse": 0.00038345844454748274,
+      "low_counterfactual_mse": 0.008005939258956865,
+      "high_counterfactual_mse": 0.0003849752360591006
+    },
+    {
+      "pair_index": 14,
+      "factual_ratio_low_over_high": 1.0859653985108944,
+      "counterfactual_ratio_low_over_high": 19.42726153722972,
+      "low_factual_mse": 0.0004362121551228811,
+      "high_factual_mse": 0.0004016814492625891,
+      "low_counterfactual_mse": 0.007469287810978241,
+      "high_counterfactual_mse": 0.00038447455894204965
+    },
+    {
+      "pair_index": 15,
+      "factual_ratio_low_over_high": 4.595795496719299,
+      "counterfactual_ratio_low_over_high": 40.18154348267962,
+      "low_factual_mse": 0.000956109759970074,
+      "high_factual_mse": 0.00020804010114301027,
+      "low_counterfactual_mse": 0.008033834264601943,
+      "high_counterfactual_mse": 0.0001999384186937705
+    },
+    {
+      "pair_index": 16,
+      "factual_ratio_low_over_high": 1.5341135948965572,
+      "counterfactual_ratio_low_over_high": 43.84761188437713,
+      "low_factual_mse": 0.0003429700463503995,
+      "high_factual_mse": 0.00022356235385132965,
+      "low_counterfactual_mse": 0.010730652714159562,
+      "high_counterfactual_mse": 0.00024472604671049107
+    },
+    {
+      "pair_index": 17,
+      "factual_ratio_low_over_high": 6.834845146030012,
+      "counterfactual_ratio_low_over_high": 164.07906834142833,
+      "low_factual_mse": 0.0007576775830675635,
+      "high_factual_mse": 0.00011085512061786168,
+      "low_counterfactual_mse": 0.01696111874401576,
+      "high_counterfactual_mse": 0.00010337161781490471
+    },
+    {
+      "pair_index": 18,
+      "factual_ratio_low_over_high": 5.443591494772859,
+      "counterfactual_ratio_low_over_high": 173.5489518618049,
+      "low_factual_mse": 0.0007548000831730343,
+      "high_factual_mse": 0.00013865847279279162,
+      "low_counterfactual_mse": 0.02390031282554224,
+      "high_counterfactual_mse": 0.0001377151090176205
+    },
+    {
+      "pair_index": 19,
+      "factual_ratio_low_over_high": 1.7471960011077081,
+      "counterfactual_ratio_low_over_high": 33.38091175971398,
+      "low_factual_mse": 0.0005360996225212708,
+      "high_factual_mse": 0.0003068342774258801,
+      "low_counterfactual_mse": 0.010351936407592924,
+      "high_counterfactual_mse": 0.00031011544807731225
+    },
+    {
+      "pair_index": 20,
+      "factual_ratio_low_over_high": 1.3611678441000414,
+      "counterfactual_ratio_low_over_high": 42.962443028499884,
+      "low_factual_mse": 0.00029663092014769896,
+      "high_factual_mse": 0.00021792383755863803,
+      "low_counterfactual_mse": 0.008542572000191335,
+      "high_counterfactual_mse": 0.00019883813391441616
+    }
+  ]
+}

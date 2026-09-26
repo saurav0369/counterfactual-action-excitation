@@ -1,0 +1,65 @@
+{
+  "status": "FINAL_CLAIM_FREEZE_V1.1_AFTER_POSTHOC_MECHANISM_AUDIT",
+  "primary_controlled_claim": "In the tested controlled nonlinear transition family, behavior policies with exactly matched raw action mean and covariance but different excitation of the relevant nonlinear action feature produced a much larger degradation in intervention prediction than in behavior-weighted on-policy prediction.",
+  "primary_controlled_evidence": {
+    "protocol": "v0.3",
+    "neural_factual_low_high_geometric_ratio": 1.903168,
+    "neural_counterfactual_low_high_geometric_ratio": 50.93254,
+    "neural_amplification_geometric_ratio": 26.761982,
+    "neural_amplification_ci95": [
+      23.6234,
+      30.21
+    ],
+    "individual_runs_above_2x": "20/20",
+    "held_out_beta_values": [
+      0.75,
+      0.9,
+      1.1,
+      1.25
+    ]
+  },
+  "external_boundary_claim": "In the frozen PushT external test, factual error was essentially unchanged while counterfactual error was higher under weak excitation, but the effect did not meet either preregistered external threshold. The result is therefore a directional external observation and a boundary on the controlled effect, not confirmatory external support.",
+  "external_evidence": {
+    "protocol": "external_pusht_v0.1",
+    "factual_low_high_geometric_ratio": 1.000799995644892,
+    "factual_ci95": [
+      0.9752993523664921,
+      1.0290122856492505
+    ],
+    "counterfactual_low_high_geometric_ratio": 1.3245825989640856,
+    "counterfactual_ci95": [
+      1.298468169747045,
+      1.3501464460006614
+    ],
+    "amplification_geometric_ratio": 1.323523785699615,
+    "amplification_ci95": [
+      1.2806226883500222,
+      1.3625861150551148
+    ],
+    "primary_threshold": 2.0,
+    "primary_pass": false,
+    "secondary_threshold": 1.5,
+    "secondary_pass": false
+  },
+  "required_disclosures": [
+    "v0.2.1 failed its stricter factual-equivalence primary test and remains recorded as failed.",
+    "The v0.3 hypothesis was frozen prospectively after v0.2.1 and used fresh seeds and held-out interaction strengths.",
+    "PushT did not pass its preregistered external thresholds.",
+    "The broad action-excitation/counterfactual-identification phenomenon is not claimed as novel; novelty must be framed narrowly around matched low-order action statistics hiding task-relevant nonlinear excitation differences and the controlled empirical characterization.",
+    "The post-hoc PushT mechanism audit falsified the proposed contact-coupling explanation and remains exploratory only."
+  ],
+  "prohibited_claims": [
+    "same factual accuracy for the v0.3 neural model",
+    "universal world-model failure",
+    "universal 1/epsilon neural scaling law",
+    "confirmed external validity from PushT",
+    "first discovery of persistent excitation or action-coverage effects",
+    "counterfactual MSE improvement implies proportional planning improvement"
+  ],
+  "posthoc_mechanism_audit": {
+    "status": "exploratory_only",
+    "aggregate_reproduction_max_relative_error": 0.0,
+    "finding": "The predeclared contact-coupling explanation was not supported. Relative low/high counterfactual error was smaller in contact/block-motion states (~1.09x) and larger in non-contact/no-motion states (~2.81x). Absolute MSE differences were similar across these strata, so the ratio difference mainly reflects different baseline error scales.",
+    "allowed_use": "Appendix or limitations discussion only; does not revise the failed PushT preregistered thresholds."
+  }
+}
